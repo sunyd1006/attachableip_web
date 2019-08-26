@@ -1,0 +1,115 @@
+{% extends "controlHomeTemp.html" %} {% block body %}
+<div class="app-content">
+    <section class="section">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>文本上传</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row ">
+                            <label class="col-sm-3">文章标题</label>
+                            <div class="col-sm-9">
+                                <textarea rows="1" class="form-control" id="fileName"></textarea>
+                            </div>
+                        </div>
+                        <div class="row m-t-10">
+                            <label class="col-sm-3">文章内容</label>
+                            <div class="col-sm-9">
+                                <textarea rows="10" class="form-control" id="fileContent"></textarea>
+                            </div>
+                        </div>
+                        <div class="row m-t-10">
+                            <div class="col-3">
+                                <b>或者</b>
+                            </div>
+                            <div class="col-9" style="height: 30%;">
+                                <form>
+                                    <div class="form-group files color  mb-lg-0">
+                                        <input type="file" class="form-control1" multiple="">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn btn-lg btn-primary" id="upload">
+                            提交
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">存证成功，版权码已贴附在版权详情中...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="qrcode" style="width:10%;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- scrpit 脚本 -->
+{% block script %}
+<script>
+    $(document).ready(function () {
+
+
+
+        $("#upload").click(function () {
+
+            $.ajax({
+                url: "/upload/article",
+                type: "GET",
+                data: {
+                    fileName: $("#fileName").val(),
+                    fileContent: $("#fileContent").val(),
+                },
+                success: function (data) {
+                    if (data.code == 0) {
+                        //
+                        $("#exampleModal").modal();
+                        $("#erweima").attr("src", "http://pic31.nipic.com/20130724/12481004_154603392179_2.jpg");
+
+                    } else {
+                        // fuck
+                        $("#exampleModal").modal();
+                    }
+                },
+                error: function () {
+                    // 失败了，所以调用
+                    $("#exampleModal").modal();
+                    // $("#erweima").attr("src","http://pic31.nipic.com/20130724/12481004_154603392179_2.jpg");
+
+                    new QRCode(document.getElementById('qrcode'), {
+                        // text: encodeURIComponent('www.attachableip.top?productId='+data['productID']),
+                        text: encodeURIComponent('www.attachableip.top/query.html'),
+                        width: 200,
+                        height: 200,
+                        colorDark: '#000000',
+                        colorLight: '#ffffff',
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                }
+            });
+        });
+
+    });
+</script> {% endblock %}

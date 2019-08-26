@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIPC</title>
+
+    <!--favicon -->
+    <link rel="icon" href="/static/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!--Bootstrap.min css-->
+    <link rel="stylesheet" href="/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!--Icons css-->
+    <link rel="stylesheet" href="/static/assets/css/icons.css">
+
+    <!--Style css-->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+
+    <!--mCustomScrollbar css-->
+    <link rel="stylesheet" href="/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+
+    <!--Sidemenu css-->
+    <link rel="stylesheet" href="/static/assets/plugins/toggle-menu/sidemenu.css">
+
+</head>
+
+<body class="bg-primary">
+    <div id="app">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="single-page construction-bg single-pageimage cover-image" data-image-src="/static/assets/img/news/img14.jpg"
+                        style="background: url(/static/assets/img/news/img14.jpg) center center;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="wrapper wrapper2">
+                                    <form class="card-body" tabindex="500">
+                                        <h3>注册</h3>
+                                        <div class="mail">
+                                            <input type="email" name="mail">
+                                            <label>用户邮箱/手机号</label>
+                                        </div>
+                                        <div class="passwd">
+                                            <input type="password" name="password">
+                                            <label>密码</label>
+                                        </div>
+                                        <div class="submit">
+                                            <a  href='login.html' class="btn btn-primary btn-block" id="submit">注册</a>
+                                        </div>
+                                        <p class="text-dark mb-0">已经有账号了吗?
+                                            <a href="login.html" class="text-primary ml-1">登录</a>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="log-wrapper ">
+                                    <div class="log-wrapper text-center ">
+                                        <img src="/static/img/brand/bigLogoline-wu.png" alt="logo" style="  width: 100%; ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Jquery.min js-->
+    <script src="/static/assets/js/jquery.min.js"></script>
+
+    <!--popper js-->
+    <script src="/static/assets/js/popper.js"></script>
+
+    <!--Tooltip js-->
+    <script src="/static/assets/js/tooltip.js"></script>
+
+    <!--Bootstrap.min js-->
+    <script src="/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Jquery.nicescroll.min js-->
+    <script src="/static/assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+
+    <!--Scroll-up-bar.min js-->
+    <script src="/static/assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="/static/assets/js/moment.min.js"></script>
+
+    <!--mCustomScrollbar js-->
+    <script src="/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!--Sidemenu js-->
+    <script src="/static/assets/plugins/toggle-menu/sidemenu.js"></script>
+
+    <!--Scripts js-->
+    <script src="/static/assets/js/scripts.js"></script>
+
+</body>
+
+</html>
+
+
+<script>
+    $(document).ready(function () {
+
+        function easyKey() {
+            var bip39 = require('bip39')
+            var hdkey = require('ethereumjs-wallet/hdkey')
+            var util = require('ethereumjs-util')
+            var skey = "we are ip content, used for easyKey."
+            // 生成助记词
+            var mnemonic = bip39.generateMnemonic()
+
+            alert(mnemonic)
+
+            var seed = bip39.mnemonicToSeed(mnemonic)
+            var hdWallet = hdkey.fromMasterSeed(seed)
+
+            var key1 = hdWallet.derivePath("m/44'/60'/0'/0/0")
+            alert("私钥：" + util.bufferToHex(key1._hdkey._privateKey))
+
+            var address1 = util.pubToAddress(key1._hdkey._publicKey, true)
+            alert("地址：" + util.bufferToHex(address1))
+
+            address1 = util.toChecksumAddress(address1.toString('hex'))
+            alert("Encoding Address 地址：" + address1)
+        }
+
+        $("#submit").click(function () {
+            easyKey()
+        })
+
+
+    });
+</script>

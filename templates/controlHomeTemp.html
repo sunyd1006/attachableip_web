@@ -1,0 +1,249 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IP共识平台</title>
+
+    <!--favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!--Bootstrap.min css-->
+    <link rel="stylesheet" href="/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!--Icons css-->
+    <link rel="stylesheet" href="/static/assets/css/icons.css">
+
+    <!--mCustomScrollbar css-->
+    <link rel="stylesheet" href="/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+
+    <!--Style css-->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+
+    <!--Sidemenu css-->
+    <link rel="stylesheet" href="/static/assets/plugins/toggle-menu/sidemenu.css">
+
+    <!--Bootstrap-daterangepicker css-->
+    <link rel="stylesheet" href="/static/assets/plugins/bootstrap-daterangepicker/daterangepicker.css">
+
+    <!--Bootstrap-datepicker css-->
+    <link rel="stylesheet" href="/static/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.css">
+
+    <!--iCheck css-->
+    <link rel="stylesheet" href="/static/assets/plugins/iCheck/all.css">
+
+    <!--Bootstrap-colorpicker css-->
+    <link rel="stylesheet" href="/static/assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
+
+    <!--Bootstrap-timepicker css-->
+    <link rel="stylesheet" href="/static/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css">
+
+    <!--Select2 css-->
+    <link rel="stylesheet" href="/static/assets/plugins/select2/select2.css">
+
+ <!--Favicon -->
+
+    <!--Sidemenu css-->
+    <link rel="stylesheet" href="/static/assets/plugins/toggle-menu/sidemenu.css">
+
+    <!--Timeline js-->
+    <link rel="stylesheet" href="/static/assets/plugins/timeline/timeline.css">
+
+</head>
+
+<body class="app sidebar-mini sidebar-gone">
+
+    <div id="spinner" style="display: none;"></div>
+
+    <div id="app">
+        <div class="main-wrapper">
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <a class="header-brand" href="#">
+                    <img src="/static/img/brand/logoLine.jpg" class="header-brand-img" alt="AIPC logo">
+                </a>
+                <form class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li>
+                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
+                                <i class="ion ion-navicon-round"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.html" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch">
+                                <i class="ion ion-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </form>
+
+
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle">
+                        <a href="#.html" class="nav-link nav-link-lg full-screen-link">
+                            <i class="ion-arrow-expand" id="fullscreen-button"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#.html" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                            <img src="/static/assets/img/avatar/avatar-1.jpeg" alt="profile-user" class="rounded-circle w-32">
+                            <div class="d-sm-none d-lg-inline-block">示例用户</div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="505.html" class="dropdown-item has-icon">
+                                <i class="ion ion-android-person"></i> 个人中心
+                            </a>
+                            <!-- <a href="#.html" class="dropdown-item has-icon">
+                                <i class="ion-android-drafts"></i> 消息
+                            </a>
+                            <a href="#.html" class="dropdown-item has-icon">
+                                <i class="ion ion-gear-a"></i> 设置
+                            </a> -->
+                            <a href="index.html" class="dropdown-item has-icon">
+                                <i class="ion-ios-redo"></i> 退出
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <aside class="app-sidebar mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;">
+                <div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+                    <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                        <ul class="side-menu">
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#.html">
+                                    <i class="side-menu__icon fa fa-desktop"></i>
+                                    <span class="side-menu__label">版权存证</span>
+                                    <i class="angle fa fa-angle-right"></i>
+                                </a>
+                                <ul class="slide-menu">
+                                    <li>
+                                        <a class="slide-item" href="upload.html">
+                                            <span>申请存证</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="slide-item" href="myproduct.html">
+                                            <span>存证列表 </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#.html">
+                                    <i class="side-menu__icon fa fa-paw"></i>
+                                    <span class="side-menu__label">交易市场</span>
+                                    <i class="angle fa fa-angle-right"></i>
+                                </a>
+                                <ul class="slide-menu">
+                                    <li>
+                                        <a href="txtStore.html" class="slide-item">文本市场</a>
+                                    </li>
+                                    <li>
+                                        <a href="#.html" class="slide-item">视频市场</a>
+                                    </li>
+                                    <li>
+                                        <a href="#.html" class="slide-item">图片市场</a>
+                                    </li>
+                                    <li>
+                                        <a href="#.html" class="slide-item">其他市场</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: block;">
+                    <div class="mCSB_draggerContainer">
+                        <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 101px; top: 0px; display: block; max-height: 219.6px;">
+                            <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                        </div>
+                        <div class="mCSB_draggerRail"></div>
+                    </div>
+                </div>
+            </aside>
+
+
+
+
+
+
+
+            <!-- app-content 为控制台内容 -->
+            {% block body %} {% endblock %}
+
+
+
+            <!-- app-content 为控制台内容 -->
+            <footer class="main-footer">
+                <div class="text-center">
+                    Copyright © IP共识 by 996联队 2019
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!--Jquery.min js-->
+    <script src="/static/assets/js/jquery.min.js"></script>
+
+    <!--popper js-->
+    <script src="/static/assets/js/popper.js"></script>
+
+    <!--Tooltip js-->
+    <script src="/static/assets/js/tooltip.js"></script>
+
+    <!--Bootstrap.min js-->
+    <script src="/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Jquery.nicescroll.min js-->
+    <script src="/static/assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+
+    <!--Scroll-up-bar.min js-->
+    <script src="/static/assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+
+    <!--Sidemenu js-->
+    <script src="/static/assets/plugins/toggle-menu/sidemenu.js"></script>
+
+    <!--Select2 js-->
+    <script src="/static/assets/plugins/select2/select2.full.js"></script>
+
+    <!--Inputmask js-->
+    <script src="/static/assets/plugins/inputmask/jquery.inputmask.js"></script>
+
+    <!--Moment js-->
+    <script src="/static/assets/plugins/moment/moment.min.js"></script>
+
+    <!--Bootstrap-daterangepicker js-->
+    <script src="/static/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!--Bootstrap-datepicker js-->t
+    <script src="/static/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+    <!--Bootstrap-colorpicker js-->
+    <script src="/static/assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+
+    <!--Bootstrap-timepicker js-->
+    <script src="/static/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.js"></script>
+
+    <!--mCustomScrollbar js-->
+    <script src="/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!--iCheck js-->
+    <script src="/static/assets/plugins/iCheck/icheck.min.js"></script>
+
+    <!--forms js-->
+    <script src="/static/assets/js/forms.js"></script>
+
+    <!--Scripts js-->
+    <script src="/static/assets/js/scripts.js"></script>
+
+
+    {% block script %}{% endblock %}
+</body>
+
+</html>
+
+<!-- scrpit 脚本 -->
+<script src="/static/js/qrcode.js"></script>
